@@ -75,10 +75,7 @@ def fire(target):
         rockt_t.setheading(ang)
         return "Bad"
 
-def update_score_display():
-    global score
-    canvas.delete("score_text")  # 이전에 표시된 각도 텍스트 삭제
-    canvas.create_text(canvas_width - 20, 20, text=f"Score: {score}", anchor="ne", fill="black", font=("Arial", 12), tags="score_text")
+
 
 def update_angle_display():
     ang = int(rockt_t.heading())
@@ -124,7 +121,7 @@ def start_game():
     t.onkeypress(turn_down ,"Down")
     t.onkeypress(lambda: update_score(fire(target)), "space")  # target 값을 fire 함수에 전달
     t.listen()
-    t.mainloop()
+    rockt_t.mainloop()
 
 # GUI 생성
 root = tk.Tk()
